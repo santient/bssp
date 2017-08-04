@@ -1,0 +1,592 @@
+CellProfiler Pipeline: http://www.cellprofiler.org
+Version:3
+DateRevision:300
+GitHash:
+ModuleCount:37
+HasImagePlaneDetails:False
+
+Images:[module_num:1|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\'To begin creating your project, use the Images module to compile a list of files and/or folders that you want to analyze. You can also specify a set of rules to include only the desired files in your selected folders.\', \'\\xe2\\x80\\x94\', \'Settings converted from legacy pipeline.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    :
+    Filter images?:No filtering
+    Select the rule criteria:and (extension does isimage) (directory doesnot containregexp "\x5B\\\\\\\\\\\\\\\\/\x5D\\\\\\\\.")
+
+Metadata:[module_num:2|svn_version:\'Unknown\'|variable_revision_number:4|show_window:False|notes:\x5B\'The Metadata module optionally allows you to extract information describing your images (i.e, metadata) which will be stored along with your measurements. This information can be contained in the file name and/or location, or in an external file.\', \'---\', \'Settings converted from legacy pipeline.\', \'WARNING\x3A LoadSingleImage used metadata matching. The conversion might match files that were not matched by the legacy module.\', \'WARNING\x3A LoadSingleImage used metadata matching. The conversion might match files that were not matched by the legacy module.\', \'WARNING\x3A LoadSingleImage used metadata matching. The conversion might match files that were not matched by the legacy module.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Extract metadata?:Yes
+    Metadata data type:Text
+    Metadata types:{}
+    Extraction method count:3
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:File name
+    Regular expression:^(?P<Plate>.+?)\\\\_IllumDAPI\\\\.mat$
+    Regular expression:(?P<Date>\x5B0-9\x5D{4}_\x5B0-9\x5D{2}_\x5B0-9\x5D{2})$
+    Extract metadata from:Images matching a rule
+    Select the filtering criteria:and (file does containregexp "^(?P<Plate>.+?)\\\\\\\\_IllumDAPI\\\\\\\\.mat$")
+    Metadata file location:
+    Match file and image metadata:\x5B\x5D
+    Use case insensitive matching?:No
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:File name
+    Regular expression:^(?P<Plate>.+?)\\\\_IllumActin\\\\.mat$
+    Regular expression:(?P<Date>\x5B0-9\x5D{4}_\x5B0-9\x5D{2}_\x5B0-9\x5D{2})$
+    Extract metadata from:Images matching a rule
+    Select the filtering criteria:and (file does containregexp "^(?P<Plate>.+?)\\\\\\\\_IllumActin\\\\\\\\.mat$")
+    Metadata file location:
+    Match file and image metadata:\x5B\x5D
+    Use case insensitive matching?:No
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:File name
+    Regular expression:^(?P<Plate>.+?)\\\\_IllumTubulin\\\\.mat$
+    Regular expression:(?P<Date>\x5B0-9\x5D{4}_\x5B0-9\x5D{2}_\x5B0-9\x5D{2})$
+    Extract metadata from:Images matching a rule
+    Select the filtering criteria:and (file does containregexp "^(?P<Plate>.+?)\\\\\\\\_IllumTubulin\\\\\\\\.mat$")
+    Metadata file location:
+    Match file and image metadata:\x5B\x5D
+    Use case insensitive matching?:No
+
+NamesAndTypes:[module_num:3|svn_version:\'Unknown\'|variable_revision_number:7|show_window:False|notes:\x5B\'The NamesAndTypes module allows you to assign a meaningful name to each image by which other modules will refer to it.\', \'---\', \'Settings converted from legacy pipeline.\', u\'WARNING\x3A LoadSingleImage used metadata matching for the DAPIillum image. The conversion might match files that were not matched by the legacy module.\', u\'WARNING\x3A LoadSingleImage used metadata matching for the ActinIllum image. The conversion might match files that were not matched by the legacy module.\', u\'WARNING\x3A LoadSingleImage used metadata matching for the TubIllum image. The conversion might match files that were not matched by the legacy module.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Assign a name to:Images matching rules
+    Select the image type:Grayscale image
+    Name to assign these images:DNA
+    Match metadata:\x5B\x5D
+    Image set matching method:Order
+    Set intensity range from:Image metadata
+    Assignments count:3
+    Single images count:0
+    Maximum intensity:255.0
+    Process as 3D:No
+    x:1.0
+    y:1.0
+    z:1.0
+    Select the rule criteria:and (file does containregexp "^(?P<Plate>.+?)\\\\\\\\_IllumDAPI\\\\\\\\.mat$")
+    Name to assign these images:DAPIillum
+    Name to assign these objects:Cell
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Retain outlines of loaded objects?:No
+    Name the outline image:LoadedOutlines
+    Maximum intensity:255.0
+    Select the rule criteria:and (file does containregexp "^(?P<Plate>.+?)\\\\\\\\_IllumActin\\\\\\\\.mat$")
+    Name to assign these images:ActinIllum
+    Name to assign these objects:Nucleus
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Retain outlines of loaded objects?:No
+    Name the outline image:LoadedOutlines
+    Maximum intensity:255.0
+    Select the rule criteria:and (file does containregexp "^(?P<Plate>.+?)\\\\\\\\_IllumTubulin\\\\\\\\.mat$")
+    Name to assign these images:TubIllum
+    Name to assign these objects:Cytoplasm
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Retain outlines of loaded objects?:No
+    Name the outline image:LoadedOutlines
+    Maximum intensity:255.0
+
+Groups:[module_num:4|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\'The Groups module optionally allows you to split your list of images into image subsets (groups) which will be processed independently of each other. Examples of groupings include screening batches, microtiter plates, time-lapse movies, etc.\', \'---\', \'Settings converted from legacy pipeline.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Do you want to group your images?:No
+    grouping metadata count:1
+    Metadata category:None
+
+LoadData:[module_num:5|svn_version:\'Unknown\'|variable_revision_number:6|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Input data file location:Default Input Folder sub-folder\x7CDownloads
+    Name of the file:metadata_new.csv
+    Load images based on this data?:Yes
+    Base image location:Default Input Folder\x7C
+    Process just a range of rows?:No
+    Rows to process:1,1
+    Group images by metadata?:Yes
+    Select metadata tags for grouping:Plate,Well
+    Rescale intensities?:Yes
+
+CorrectIlluminationApply:[module_num:6|svn_version:\'Unknown\'|variable_revision_number:3|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:DAPI
+    Name the output image:CorrDAPI
+    Select the illumination function:DAPIillum
+    Select how the illumination function is applied:Divide
+
+CorrectIlluminationApply:[module_num:7|svn_version:\'Unknown\'|variable_revision_number:3|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:Actin
+    Name the output image:CorrActin
+    Select the illumination function:ActinIllum
+    Select how the illumination function is applied:Divide
+
+CorrectIlluminationApply:[module_num:8|svn_version:\'Unknown\'|variable_revision_number:3|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:Tubulin
+    Name the output image:CorrTub
+    Select the illumination function:TubIllum
+    Select how the illumination function is applied:Divide
+
+IdentifyPrimaryObjects:[module_num:9|svn_version:\'Unknown\'|variable_revision_number:13|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Input:CorrDAPI
+    Object:Nuclei
+    Typical diameter of objects, in pixel units (Min,Max):6,115
+    Discard objects outside the diameter range?:Yes
+    Discard objects touching the border of the image?:Yes
+    Method to distinguish clumped objects:Shape
+    Method to draw dividing lines between clumped objects:Intensity
+    Size of smoothing filter:10
+    Suppress local maxima that are closer than this minimum allowed distance:5
+    Speed up by using lower-resolution image to find local maxima?:Yes
+    Fill holes in identified objects?:After both thresholding and declumping
+    Automatically calculate size of smoothing filter for declumping?:No
+    Automatically calculate minimum allowed distance between local maxima?:Yes
+    Handling of objects if excessive number of objects identified:Continue
+    Maximum number of objects:500
+    Use advanced settings?:Yes
+    Threshold setting version:9
+    Threshold strategy:Global
+    Thresholding method:Otsu
+    Threshold smoothing scale:1.3488
+    Threshold correction factor:1
+    Lower and upper bounds on threshold:0,1
+    Manual threshold:0.0
+    Select the measurement to threshold with:None
+    Two-class or three-class thresholding?:Two classes
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+    Size of adaptive window:10
+    Lower outlier fraction:0.05
+    Upper outlier fraction:0.05
+    Averaging method:Mean
+    Variance method:Standard deviation
+    # of deviations:2
+    Thresholding method:Default
+
+IdentifySecondaryObjects:[module_num:10|svn_version:\'Unknown\'|variable_revision_number:9|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input objects:Nuclei
+    Name the objects to be identified:Cells
+    Select the method to identify the secondary objects:Propagation
+    Select the input image:CorrActin
+    Number of pixels by which to expand the primary objects:10
+    Regularization factor:0.05
+    Name the outline image:CellOutline
+    Retain outlines of the identified secondary objects?:Yes
+    Discard secondary objects touching the border of the image?:No
+    Discard the associated primary objects?:No
+    Name the new primary objects:FilteredNuclei
+    Retain outlines of the new primary objects?:No
+    Name the new primary object outlines:FilteredNucleiOutlines
+    Fill holes in identified objects?:Yes
+    Threshold setting version:9
+    Threshold strategy:Global
+    Thresholding method:Otsu
+    Threshold smoothing scale:0
+    Threshold correction factor:1
+    Lower and upper bounds on threshold:0,1
+    Manual threshold:0
+    Select the measurement to threshold with:None
+    Two-class or three-class thresholding?:Two classes
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+    Size of adaptive window:10
+    Lower outlier fraction:0.05
+    Upper outlier fraction:0.05
+    Averaging method:Mean
+    Variance method:Standard deviation
+    # of deviations:2
+    Thresholding method:Default
+
+IdentifyTertiaryObjects:[module_num:11|svn_version:\'Unknown\'|variable_revision_number:2|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the larger identified objects:Cells
+    Select the smaller identified objects:Nuclei
+    Name the tertiary objects to be identified:Cytoplasm
+    Name the outline image:Do not use
+    Retain outlines of the tertiary objects?:No
+    Shrink smaller object prior to subtraction?:Yes
+
+MeasureObjectSizeShape:[module_num:12|svn_version:\'Unknown\'|variable_revision_number:1|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select objects to measure:Nuclei
+    Select objects to measure:Cells
+    Select objects to measure:Cytoplasm
+    Calculate the Zernike features?:Yes
+
+MeasureObjectIntensity:[module_num:13|svn_version:\'Unknown\'|variable_revision_number:3|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Select an image to measure:CorrDAPI
+    Select objects to measure:Nuclei
+
+MeasureObjectIntensity:[module_num:14|svn_version:\'Unknown\'|variable_revision_number:3|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Select an image to measure:CorrActin
+    Select objects to measure:Nuclei
+    Select objects to measure:Cells
+    Select objects to measure:Cytoplasm
+
+MeasureObjectIntensity:[module_num:15|svn_version:\'Unknown\'|variable_revision_number:3|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Select an image to measure:CorrTub
+    Select objects to measure:Nuclei
+    Select objects to measure:Cells
+    Select objects to measure:Cytoplasm
+
+MeasureObjectNeighbors:[module_num:16|svn_version:\'Unknown\'|variable_revision_number:2|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select objects to measure:Cells
+    Select neighboring objects to measure:Cells
+    Method to determine neighbors:Within a specified distance
+    Neighbor distance:3
+    Retain the image of objects colored by numbers of neighbors?:No
+    Name the output image:Do not use
+    Select colormap:Default
+    Retain the image of objects colored by percent of touching pixels?:No
+    Name the output image:PercentTouching
+    Select a colormap:Default
+
+MeasureObjectNeighbors:[module_num:17|svn_version:\'Unknown\'|variable_revision_number:2|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select objects to measure:Cells
+    Select neighboring objects to measure:Cells
+    Method to determine neighbors:Within a specified distance
+    Neighbor distance:10
+    Retain the image of objects colored by numbers of neighbors?:No
+    Name the output image:Do not use
+    Select colormap:Default
+    Retain the image of objects colored by percent of touching pixels?:No
+    Name the output image:PercentTouching
+    Select a colormap:Default
+
+MeasureObjectNeighbors:[module_num:18|svn_version:\'Unknown\'|variable_revision_number:2|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select objects to measure:Nuclei
+    Select neighboring objects to measure:Nuclei
+    Method to determine neighbors:Within a specified distance
+    Neighbor distance:10
+    Retain the image of objects colored by numbers of neighbors?:No
+    Name the output image:Do not use
+    Select colormap:Default
+    Retain the image of objects colored by percent of touching pixels?:No
+    Name the output image:PercentTouching
+    Select a colormap:Default
+
+MeasureObjectNeighbors:[module_num:19|svn_version:\'Unknown\'|variable_revision_number:2|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select objects to measure:Nuclei
+    Select neighboring objects to measure:Nuclei
+    Method to determine neighbors:Within a specified distance
+    Neighbor distance:20
+    Retain the image of objects colored by numbers of neighbors?:No
+    Name the output image:Do not use
+    Select colormap:Default
+    Retain the image of objects colored by percent of touching pixels?:No
+    Name the output image:PercentTouching
+    Select a colormap:Default
+
+MeasureTexture:[module_num:20|svn_version:\'Unknown\'|variable_revision_number:4|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Hidden:1
+    Hidden:1
+    Select an image to measure:CorrDAPI
+    Select objects to measure:Nuclei
+    Texture scale to measure:10
+    Angles to measure:Horizontal
+    Measure Gabor features?:Yes
+    Number of angles to compute for Gabor:4
+    Measure images or objects?:Both
+
+MeasureTexture:[module_num:21|svn_version:\'Unknown\'|variable_revision_number:4|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Hidden:3
+    Hidden:1
+    Select an image to measure:CorrActin
+    Select objects to measure:Nuclei
+    Select objects to measure:Cells
+    Select objects to measure:Cytoplasm
+    Texture scale to measure:10
+    Angles to measure:Horizontal
+    Measure Gabor features?:Yes
+    Number of angles to compute for Gabor:4
+    Measure images or objects?:Both
+
+MeasureTexture:[module_num:22|svn_version:\'Unknown\'|variable_revision_number:4|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Hidden:3
+    Hidden:1
+    Select an image to measure:CorrTub
+    Select objects to measure:Nuclei
+    Select objects to measure:Cells
+    Select objects to measure:Cytoplasm
+    Texture scale to measure:10
+    Angles to measure:Horizontal
+    Measure Gabor features?:Yes
+    Number of angles to compute for Gabor:4
+    Measure images or objects?:Both
+
+MeasureTexture:[module_num:23|svn_version:\'Unknown\'|variable_revision_number:4|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Hidden:1
+    Hidden:1
+    Select an image to measure:CorrDAPI
+    Select objects to measure:Nuclei
+    Texture scale to measure:3
+    Angles to measure:Horizontal
+    Measure Gabor features?:Yes
+    Number of angles to compute for Gabor:4
+    Measure images or objects?:Both
+
+MeasureTexture:[module_num:24|svn_version:\'Unknown\'|variable_revision_number:4|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Hidden:3
+    Hidden:1
+    Select an image to measure:CorrActin
+    Select objects to measure:Nuclei
+    Select objects to measure:Cells
+    Select objects to measure:Cytoplasm
+    Texture scale to measure:3
+    Angles to measure:Horizontal
+    Measure Gabor features?:Yes
+    Number of angles to compute for Gabor:4
+    Measure images or objects?:Both
+
+MeasureTexture:[module_num:25|svn_version:\'Unknown\'|variable_revision_number:4|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Hidden:1
+    Hidden:3
+    Hidden:1
+    Select an image to measure:CorrTub
+    Select objects to measure:Nuclei
+    Select objects to measure:Cells
+    Select objects to measure:Cytoplasm
+    Texture scale to measure:3
+    Angles to measure:Horizontal
+    Measure Gabor features?:Yes
+    Number of angles to compute for Gabor:4
+    Measure images or objects?:Both
+
+SaveImages:[module_num:26|svn_version:\'Unknown\'|variable_revision_number:12|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:CorrDAPI
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:DAPI
+    Enter single file name:DAPI
+    Number of digits:4
+    Append a suffix to the image file name?:No
+    Text to append to the image name:Outline
+    Saved file format:png
+    Output file location:Default Output Folder sub-folder\x7COutlines\\\\\\\\\\\\g<Plate>
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...\x7C/Users/santiagobenoit
+
+SaveImages:[module_num:27|svn_version:\'Unknown\'|variable_revision_number:12|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:CellOutline
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:DAPIillum
+    Enter single file name:DAPI
+    Number of digits:4
+    Append a suffix to the image file name?:No
+    Text to append to the image name:Outline
+    Saved file format:png
+    Output file location:Default Output Folder sub-folder\x7COutlines\\\\\\\\\\\\g<Plate>
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...\x7C/Users/santiagobenoit
+
+SaveImages:[module_num:28|svn_version:\'Unknown\'|variable_revision_number:12|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:CellOutline
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:DAPI
+    Enter single file name:DAPI
+    Number of digits:4
+    Append a suffix to the image file name?:No
+    Text to append to the image name:Outline
+    Saved file format:png
+    Output file location:Default Output Folder sub-folder\x7COutlines\\\\\\\\\\\\g<Plate>
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...\x7C/Users/santiagobenoit
+
+ConvertObjectsToImage:[module_num:29|svn_version:\'Unknown\'|variable_revision_number:1|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input objects:Cells
+    Name the output image:CellImage
+    Select the color format:uint16
+    Select the colormap:Default
+
+ConvertObjectsToImage:[module_num:30|svn_version:\'Unknown\'|variable_revision_number:1|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input objects:Cytoplasm
+    Name the output image:CytoplasmImage
+    Select the color format:uint16
+    Select the colormap:Default
+
+ConvertObjectsToImage:[module_num:31|svn_version:\'Unknown\'|variable_revision_number:1|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input objects:Nuclei
+    Name the output image:NucleiImage
+    Select the color format:uint16
+    Select the colormap:Default
+
+SaveImages:[module_num:32|svn_version:\'Unknown\'|variable_revision_number:12|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:CellImage
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:DAPI
+    Enter single file name:Segmentation_Cell_
+    Number of digits:5
+    Append a suffix to the image file name?:Yes
+    Text to append to the image name:_Cell
+    Saved file format:png
+    Output file location:Default Output Folder sub-folder\x7COutlines\\\\\\\\\\\\g<Plate>
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:Yes
+    Base image folder:Elsewhere...\x7C/Users/santiagobenoit
+
+SaveImages:[module_num:33|svn_version:\'Unknown\'|variable_revision_number:12|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:CytoplasmImage
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:DAPI
+    Enter single file name:Segmentation_Cytoplasm
+    Number of digits:4
+    Append a suffix to the image file name?:Yes
+    Text to append to the image name:_Cytoplasm
+    Saved file format:png
+    Output file location:Default Output Folder sub-folder\x7COutlines\\\\\\\\\\\\g<Plate>
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:Yes
+    Base image folder:Elsewhere...\x7C/Users/santiagobenoit
+
+SaveImages:[module_num:34|svn_version:\'Unknown\'|variable_revision_number:12|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:NucleiImage
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:DAPI
+    Enter single file name:DAPI
+    Number of digits:4
+    Append a suffix to the image file name?:Yes
+    Text to append to the image name:_Nuclei
+    Saved file format:png
+    Output file location:Default Output Folder sub-folder\x7COutlines\\\\\\\\\\\\g<Plate>
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:Yes
+    When to save:Every cycle
+    Record the file and path information to the saved image?:Yes
+    Create subfolders in the output folder?:Yes
+    Base image folder:Elsewhere...\x7C/Users/santiagobenoit
+
+ExportToDatabase:[module_num:35|svn_version:\'Unknown\'|variable_revision_number:27|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Database type:MySQL
+    Database name:2013_01_02_IlluminationCorrection
+    Add a prefix to table names?:Yes
+    Table prefix:MorphologyAnalysis_posneg_WithICFs_Median500M_
+    SQL file prefix:SQL_
+    Output file location:Default Output Folder\x7C.
+    Create a CellProfiler Analyst properties file?:Yes
+    Database host:imgdb02
+    Username:cpuser
+    Password:cPus3r
+    Name the SQLite database file:DefaultDB.db
+    Calculate the per-image mean values of object measurements?:No
+    Calculate the per-image median values of object measurements?:No
+    Calculate the per-image standard deviation values of object measurements?:No
+    Calculate the per-well mean values of object measurements?:No
+    Calculate the per-well median values of object measurements?:No
+    Calculate the per-well standard deviation values of object measurements?:No
+    Export measurements for all objects to the database?:All
+    Select the objects:
+    Maximum # of characters in a column name:64
+    Create one table per object, a single object table or a single object view?:Single object table
+    Enter an image url prepend if you plan to access your files via http:http\x3A//imageweb/images/CPALinks
+    Write image thumbnails directly to the database?:Yes
+    Select the images for which you want to save thumbnails:Actin,CellOutline,DAPI,Tubulin
+    Auto-scale thumbnail pixel intensities?:No
+    Select the plate type:96
+    Select the plate metadata:Plate
+    Select the well metadata:Well
+    Include information for all images, using default values?:No
+    Properties image group count:4
+    Properties group field count:1
+    Properties filter field count:0
+    Workspace measurement count:1
+    Experiment name:MyExpt
+    Which objects should be used for locations?:Nuclei
+    Enter a phenotype class table name if using the classifier tool:
+    Export object relationships?:No
+    Overwrite without warning?:Data only
+    Access CPA images via URL?:Yes
+    Select the classification type:Object
+    Select an image to include:Actin
+    Use the image name for the display?:Yes
+    Image name:None
+    Channel color:green
+    Select an image to include:CellOutline
+    Use the image name for the display?:Yes
+    Image name:Channel2
+    Channel color:gray
+    Select an image to include:DAPI
+    Use the image name for the display?:Yes
+    Image name:Channel3
+    Channel color:red
+    Select an image to include:Tubulin
+    Use the image name for the display?:Yes
+    Image name:Channel4
+    Channel color:blue
+    Do you want to add group fields?:No
+    Enter the name of the group:
+    Enter the per-image columns which define the group, separated by commas:ImageNumber, Image_Metadata_Plate, Image_Metadata_Well
+    Do you want to add filter fields?:No
+    Automatically create a filter for each plate?:No
+    Create a CellProfiler Analyst workspace file?:No
+    Select the measurement display tool:ScatterPlot
+    Type of measurement to plot on the X-axis:Image
+    Enter the object name:Image
+    Select the X-axis measurement:
+    Select the X-axis index:ImageNumber
+    Type of measurement to plot on the Y-axis:Image
+    Enter the object name:Image
+    Select the Y-axis measurement:
+    Select the Y-axis index:ImageNumber
+
+ExportToSpreadsheet:[module_num:36|svn_version:\'Unknown\'|variable_revision_number:11|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Select the column delimiter:Comma (",")
+    Add image metadata columns to your object data file?:No
+    Limit output to a size that is allowed in Excel?:No
+    Select the measurements to export:Yes
+    Calculate the per-image mean values for object measurements?:No
+    Calculate the per-image median values for object measurements?:No
+    Calculate the per-image standard deviation values for object measurements?:No
+    Output file location:Default Output Folder sub-folder\x7C\\\\g<Plate>_\\\\g<Well>
+    Create a GenePattern GCT file?:No
+    Select source of sample row name:Metadata
+    Select the image to use as the identifier:None
+    Select the metadata to use as the identifier:None
+    Export all measurement types?:No
+    :Cytoplasm\x7CParent_Cells,Cytoplasm\x7CParent_Nuclei,Cytoplasm\x7CNumber_Object_Number,Cytoplasm\x7CTexture_InfoMeas2_CorrTub_10_0,Cytoplasm\x7CTexture_InfoMeas2_CorrTub_3_0,Cytoplasm\x7CTexture_InfoMeas2_CorrActin_10_0,Cytoplasm\x7CTexture_InfoMeas2_CorrActin_3_0,Cytoplasm\x7CTexture_DifferenceVariance_CorrTub_10_0,Cytoplasm\x7CTexture_DifferenceVariance_CorrTub_3_0,Cytoplasm\x7CTexture_DifferenceVariance_CorrActin_10_0,Cytoplasm\x7CTexture_DifferenceVariance_CorrActin_3_0,Cytoplasm\x7CTexture_SumVariance_CorrTub_10_0,Cytoplasm\x7CTexture_SumVariance_CorrTub_3_0,Cytoplasm\x7CTexture_SumVariance_CorrActin_10_0,Cytoplasm\x7CTexture_SumVariance_CorrActin_3_0,Cytoplasm\x7CTexture_Gabor_CorrTub_10,Cytoplasm\x7CTexture_Gabor_CorrTub_3,Cytoplasm\x7CTexture_Gabor_CorrActin_10,Cytoplasm\x7CTexture_Gabor_CorrActin_3,Cytoplasm\x7CTexture_DifferenceEntropy_CorrTub_10_0,Cytoplasm\x7CTexture_DifferenceEntropy_CorrTub_3_0,Cytoplasm\x7CTexture_DifferenceEntropy_CorrActin_10_0,Cytoplasm\x7CTexture_DifferenceEntropy_CorrActin_3_0,Cytoplasm\x7CTexture_AngularSecondMoment_CorrTub_10_0,Cytoplasm\x7CTexture_AngularSecondMoment_CorrTub_3_0,Cytoplasm\x7CTexture_AngularSecondMoment_CorrActin_10_0,Cytoplasm\x7CTexture_AngularSecondMoment_CorrActin_3_0,Cytoplasm\x7CTexture_Entropy_CorrTub_10_0,Cytoplasm\x7CTexture_Entropy_CorrTub_3_0,Cytoplasm\x7CTexture_Entropy_CorrActin_10_0,Cytoplasm\x7CTexture_Entropy_CorrActin_3_0,Cytoplasm\x7CTexture_Correlation_CorrTub_10_0,Cytoplasm\x7CTexture_Correlation_CorrTub_3_0,Cytoplasm\x7CTexture_Correlation_CorrActin_10_0,Cytoplasm\x7CTexture_Correlation_CorrActin_3_0,Cytoplasm\x7CTexture_SumAverage_CorrTub_10_0,Cytoplasm\x7CTexture_SumAverage_CorrTub_3_0,Cytoplasm\x7CTexture_SumAverage_CorrActin_10_0,Cytoplasm\x7CTexture_SumAverage_CorrActin_3_0,Cytoplasm\x7CTexture_Variance_CorrTub_10_0,Cytoplasm\x7CTexture_Variance_CorrTub_3_0,Cytoplasm\x7CTexture_Variance_CorrActin_10_0,Cytoplasm\x7CTexture_Variance_CorrActin_3_0,Cytoplasm\x7CTexture_SumEntropy_CorrTub_10_0,Cytoplasm\x7CTexture_SumEntropy_CorrTub_3_0,Cytoplasm\x7CTexture_SumEntropy_CorrActin_10_0,Cytoplasm\x7CTexture_SumEntropy_CorrActin_3_0,Cytoplasm\x7CTexture_InverseDifferenceMoment_CorrTub_10_0,Cytoplasm\x7CTexture_InverseDifferenceMoment_CorrTub_3_0,Cytoplasm\x7CTexture_InverseDifferenceMoment_CorrActin_10_0,Cytoplasm\x7CTexture_InverseDifferenceMoment_CorrActin_3_0,Cytoplasm\x7CTexture_Contrast_CorrTub_10_0,Cytoplasm\x7CTexture_Contrast_CorrTub_3_0,Cytoplasm\x7CTexture_Contrast_CorrActin_10_0,Cytoplasm\x7CTexture_Contrast_CorrActin_3_0,Cytoplasm\x7CTexture_InfoMeas1_CorrTub_10_0,Cytoplasm\x7CTexture_InfoMeas1_CorrTub_3_0,Cytoplasm\x7CTexture_InfoMeas1_CorrActin_10_0,Cytoplasm\x7CTexture_InfoMeas1_CorrActin_3_0,Cytoplasm\x7CIntensity_MassDisplacement_CorrTub,Cytoplasm\x7CIntensity_MassDisplacement_CorrActin,Cytoplasm\x7CIntensity_MinIntensity_CorrTub,Cytoplasm\x7CIntensity_MinIntensity_CorrActin,Cytoplasm\x7CIntensity_StdIntensity_CorrTub,Cytoplasm\x7CIntensity_StdIntensity_CorrActin,Cytoplasm\x7CIntensity_IntegratedIntensityEdge_CorrTub,Cytoplasm\x7CIntensity_IntegratedIntensityEdge_CorrActin,Cytoplasm\x7CIntensity_UpperQuartileIntensity_CorrTub,Cytoplasm\x7CIntensity_UpperQuartileIntensity_CorrActin,Cytoplasm\x7CIntensity_IntegratedIntensity_CorrTub,Cytoplasm\x7CIntensity_IntegratedIntensity_CorrActin,Cytoplasm\x7CIntensity_MinIntensityEdge_CorrTub,Cytoplasm\x7CIntensity_MinIntensityEdge_CorrActin,Cytoplasm\x7CIntensity_MADIntensity_CorrTub,Cytoplasm\x7CIntensity_MADIntensity_CorrActin,Cytoplasm\x7CIntensity_LowerQuartileIntensity_CorrTub,Cytoplasm\x7CIntensity_LowerQuartileIntensity_CorrActin,Cytoplasm\x7CIntensity_MeanIntensityEdge_CorrTub,Cytoplasm\x7CIntensity_MeanIntensityEdge_CorrActin,Cytoplasm\x7CIntensity_MaxIntensity_CorrTub,Cytoplasm\x7CIntensity_MaxIntensity_CorrActin,Cytoplasm\x7CIntensity_MedianIntensity_CorrTub,Cytoplasm\x7CIntensity_MedianIntensity_CorrActin,Cytoplasm\x7CIntensity_MeanIntensity_CorrTub,Cytoplasm\x7CIntensity_MeanIntensity_CorrActin,Cytoplasm\x7CIntensity_StdIntensityEdge_CorrTub,Cytoplasm\x7CIntensity_StdIntensityEdge_CorrActin,Cytoplasm\x7CIntensity_MaxIntensityEdge_CorrTub,Cytoplasm\x7CIntensity_MaxIntensityEdge_CorrActin,Cytoplasm\x7CLocation_MaxIntensity_Y_CorrTub,Cytoplasm\x7CLocation_MaxIntensity_Y_CorrActin,Cytoplasm\x7CLocation_MaxIntensity_X_CorrTub,Cytoplasm\x7CLocation_MaxIntensity_X_CorrActin,Cytoplasm\x7CLocation_MaxIntensity_Z_CorrTub,Cytoplasm\x7CLocation_MaxIntensity_Z_CorrActin,Cytoplasm\x7CLocation_CenterMassIntensity_Y_CorrTub,Cytoplasm\x7CLocation_CenterMassIntensity_Y_CorrActin,Cytoplasm\x7CLocation_CenterMassIntensity_X_CorrTub,Cytoplasm\x7CLocation_CenterMassIntensity_X_CorrActin,Cytoplasm\x7CLocation_CenterMassIntensity_Z_CorrTub,Cytoplasm\x7CLocation_CenterMassIntensity_Z_CorrActin,Cytoplasm\x7CLocation_Center_Y,Cytoplasm\x7CLocation_Center_X,Cytoplasm\x7CAreaShape_Perimeter,Cytoplasm\x7CAreaShape_FormFactor,Cytoplasm\x7CAreaShape_Solidity,Cytoplasm\x7CAreaShape_Center_Y,Cytoplasm\x7CAreaShape_Center_X,Cytoplasm\x7CAreaShape_Center_Z,Cytoplasm\x7CAreaShape_MajorAxisLength,Cytoplasm\x7CAreaShape_MinFeretDiameter,Cytoplasm\x7CAreaShape_MaxFeretDiameter,Cytoplasm\x7CAreaShape_EulerNumber,Cytoplasm\x7CAreaShape_Zernike_1_1,Cytoplasm\x7CAreaShape_Zernike_0_0,Cytoplasm\x7CAreaShape_Zernike_3_1,Cytoplasm\x7CAreaShape_Zernike_3_3,Cytoplasm\x7CAreaShape_Zernike_2_0,Cytoplasm\x7CAreaShape_Zernike_2_2,Cytoplasm\x7CAreaShape_Zernike_5_1,Cytoplasm\x7CAreaShape_Zernike_5_3,Cytoplasm\x7CAreaShape_Zernike_5_5,Cytoplasm\x7CAreaShape_Zernike_4_2,Cytoplasm\x7CAreaShape_Zernike_4_0,Cytoplasm\x7CAreaShape_Zernike_4_4,Cytoplasm\x7CAreaShape_Zernike_7_1,Cytoplasm\x7CAreaShape_Zernike_7_3,Cytoplasm\x7CAreaShape_Zernike_7_5,Cytoplasm\x7CAreaShape_Zernike_7_7,Cytoplasm\x7CAreaShape_Zernike_6_2,Cytoplasm\x7CAreaShape_Zernike_6_0,Cytoplasm\x7CAreaShape_Zernike_6_4,Cytoplasm\x7CAreaShape_Zernike_6_6,Cytoplasm\x7CAreaShape_Zernike_9_1,Cytoplasm\x7CAreaShape_Zernike_9_3,Cytoplasm\x7CAreaShape_Zernike_9_5,Cytoplasm\x7CAreaShape_Zernike_9_7,Cytoplasm\x7CAreaShape_Zernike_9_9,Cytoplasm\x7CAreaShape_Zernike_8_0,Cytoplasm\x7CAreaShape_Zernike_8_2,Cytoplasm\x7CAreaShape_Zernike_8_4,Cytoplasm\x7CAreaShape_Zernike_8_6,Cytoplasm\x7CAreaShape_Zernike_8_8,Cytoplasm\x7CAreaShape_Eccentricity,Cytoplasm\x7CAreaShape_Compactness,Cytoplasm\x7CAreaShape_Extent,Cytoplasm\x7CAreaShape_MedianRadius,Cytoplasm\x7CAreaShape_MaximumRadius,Cytoplasm\x7CAreaShape_MeanRadius,Cytoplasm\x7CAreaShape_MinorAxisLength,Cytoplasm\x7CAreaShape_Area,Cytoplasm\x7CAreaShape_Orientation,Cells\x7CNeighbors_AngleBetweenNeighbors_10,Cells\x7CNeighbors_AngleBetweenNeighbors_3,Cells\x7CNeighbors_FirstClosestDistance_10,Cells\x7CNeighbors_FirstClosestDistance_3,Cells\x7CNeighbors_FirstClosestObjectNumber_10,Cells\x7CNeighbors_FirstClosestObjectNumber_3,Cells\x7CNeighbors_SecondClosestObjectNumber_10,Cells\x7CNeighbors_SecondClosestObjectNumber_3,Cells\x7CNeighbors_PercentTouching_10,Cells\x7CNeighbors_PercentTouching_3,Cells\x7CNeighbors_NumberOfNeighbors_10,Cells\x7CNeighbors_NumberOfNeighbors_3,Cells\x7CNeighbors_SecondClosestDistance_10,Cells\x7CNeighbors_SecondClosestDistance_3,Cells\x7CParent_Nuclei,Cells\x7CNumber_Object_Number,Cells\x7CTexture_DifferenceVariance_CorrTub_10_0,Cells\x7CTexture_DifferenceVariance_CorrTub_3_0,Cells\x7CTexture_DifferenceVariance_CorrActin_10_0,Cells\x7CTexture_DifferenceVariance_CorrActin_3_0,Cells\x7CTexture_InfoMeas1_CorrTub_10_0,Cells\x7CTexture_InfoMeas1_CorrTub_3_0,Cells\x7CTexture_InfoMeas1_CorrActin_10_0,Cells\x7CTexture_InfoMeas1_CorrActin_3_0,Cells\x7CTexture_SumVariance_CorrTub_10_0,Cells\x7CTexture_SumVariance_CorrTub_3_0,Cells\x7CTexture_SumVariance_CorrActin_10_0,Cells\x7CTexture_SumVariance_CorrActin_3_0,Cells\x7CTexture_Gabor_CorrTub_10,Cells\x7CTexture_Gabor_CorrTub_3,Cells\x7CTexture_Gabor_CorrActin_10,Cells\x7CTexture_Gabor_CorrActin_3,Cells\x7CTexture_DifferenceEntropy_CorrTub_10_0,Cells\x7CTexture_DifferenceEntropy_CorrTub_3_0,Cells\x7CTexture_DifferenceEntropy_CorrActin_10_0,Cells\x7CTexture_DifferenceEntropy_CorrActin_3_0,Cells\x7CTexture_AngularSecondMoment_CorrTub_10_0,Cells\x7CTexture_AngularSecondMoment_CorrTub_3_0,Cells\x7CTexture_AngularSecondMoment_CorrActin_10_0,Cells\x7CTexture_AngularSecondMoment_CorrActin_3_0,Cells\x7CTexture_Entropy_CorrTub_10_0,Cells\x7CTexture_Entropy_CorrTub_3_0,Cells\x7CTexture_Entropy_CorrActin_10_0,Cells\x7CTexture_Entropy_CorrActin_3_0,Cells\x7CTexture_Correlation_CorrTub_10_0,Cells\x7CTexture_Correlation_CorrTub_3_0,Cells\x7CTexture_Correlation_CorrActin_10_0,Cells\x7CTexture_Correlation_CorrActin_3_0,Cells\x7CTexture_SumAverage_CorrTub_10_0,Cells\x7CTexture_SumAverage_CorrTub_3_0,Cells\x7CTexture_SumAverage_CorrActin_10_0,Cells\x7CTexture_SumAverage_CorrActin_3_0,Cells\x7CTexture_Variance_CorrTub_10_0,Cells\x7CTexture_Variance_CorrTub_3_0,Cells\x7CTexture_Variance_CorrActin_10_0,Cells\x7CTexture_Variance_CorrActin_3_0,Cells\x7CTexture_SumEntropy_CorrTub_10_0,Cells\x7CTexture_SumEntropy_CorrTub_3_0,Cells\x7CTexture_SumEntropy_CorrActin_10_0,Cells\x7CTexture_SumEntropy_CorrActin_3_0,Cells\x7CTexture_InverseDifferenceMoment_CorrTub_10_0,Cells\x7CTexture_InverseDifferenceMoment_CorrTub_3_0,Cells\x7CTexture_InverseDifferenceMoment_CorrActin_10_0,Cells\x7CTexture_InverseDifferenceMoment_CorrActin_3_0,Cells\x7CTexture_Contrast_CorrTub_10_0,Cells\x7CTexture_Contrast_CorrTub_3_0,Cells\x7CTexture_Contrast_CorrActin_10_0,Cells\x7CTexture_Contrast_CorrActin_3_0,Cells\x7CTexture_InfoMeas2_CorrTub_10_0,Cells\x7CTexture_InfoMeas2_CorrTub_3_0,Cells\x7CTexture_InfoMeas2_CorrActin_10_0,Cells\x7CTexture_InfoMeas2_CorrActin_3_0,Cells\x7CIntensity_MassDisplacement_CorrTub,Cells\x7CIntensity_MassDisplacement_CorrActin,Cells\x7CIntensity_MinIntensity_CorrTub,Cells\x7CIntensity_MinIntensity_CorrActin,Cells\x7CIntensity_StdIntensity_CorrTub,Cells\x7CIntensity_StdIntensity_CorrActin,Cells\x7CIntensity_IntegratedIntensityEdge_CorrTub,Cells\x7CIntensity_IntegratedIntensityEdge_CorrActin,Cells\x7CIntensity_MinIntensityEdge_CorrTub,Cells\x7CIntensity_MinIntensityEdge_CorrActin,Cells\x7CIntensity_IntegratedIntensity_CorrTub,Cells\x7CIntensity_IntegratedIntensity_CorrActin,Cells\x7CIntensity_UpperQuartileIntensity_CorrTub,Cells\x7CIntensity_UpperQuartileIntensity_CorrActin,Cells\x7CIntensity_MADIntensity_CorrTub,Cells\x7CIntensity_MADIntensity_CorrActin,Cells\x7CIntensity_MeanIntensity_CorrTub,Cells\x7CIntensity_MeanIntensity_CorrActin,Cells\x7CIntensity_MeanIntensityEdge_CorrTub,Cells\x7CIntensity_MeanIntensityEdge_CorrActin,Cells\x7CIntensity_MaxIntensity_CorrTub,Cells\x7CIntensity_MaxIntensity_CorrActin,Cells\x7CIntensity_MedianIntensity_CorrTub,Cells\x7CIntensity_MedianIntensity_CorrActin,Cells\x7CIntensity_LowerQuartileIntensity_CorrTub,Cells\x7CIntensity_LowerQuartileIntensity_CorrActin,Cells\x7CIntensity_MaxIntensityEdge_CorrTub,Cells\x7CIntensity_MaxIntensityEdge_CorrActin,Cells\x7CIntensity_StdIntensityEdge_CorrTub,Cells\x7CIntensity_StdIntensityEdge_CorrActin,Cells\x7CLocation_MaxIntensity_Y_CorrTub,Cells\x7CLocation_MaxIntensity_Y_CorrActin,Cells\x7CLocation_MaxIntensity_X_CorrTub,Cells\x7CLocation_MaxIntensity_X_CorrActin,Cells\x7CLocation_MaxIntensity_Z_CorrTub,Cells\x7CLocation_MaxIntensity_Z_CorrActin,Cells\x7CLocation_Center_Y,Cells\x7CLocation_Center_X,Cells\x7CLocation_Center_Z,Cells\x7CLocation_CenterMassIntensity_Y_CorrTub,Cells\x7CLocation_CenterMassIntensity_Y_CorrActin,Cells\x7CLocation_CenterMassIntensity_X_CorrTub,Cells\x7CLocation_CenterMassIntensity_X_CorrActin,Cells\x7CLocation_CenterMassIntensity_Z_CorrTub,Cells\x7CLocation_CenterMassIntensity_Z_CorrActin,Cells\x7CAreaShape_Perimeter,Cells\x7CAreaShape_FormFactor,Cells\x7CAreaShape_MeanRadius,Cells\x7CAreaShape_Orientation,Cells\x7CAreaShape_MaxFeretDiameter,Cells\x7CAreaShape_MinFeretDiameter,Cells\x7CAreaShape_EulerNumber,Cells\x7CAreaShape_Solidity,Cells\x7CAreaShape_Zernike_1_1,Cells\x7CAreaShape_Zernike_0_0,Cells\x7CAreaShape_Zernike_3_1,Cells\x7CAreaShape_Zernike_3_3,Cells\x7CAreaShape_Zernike_2_2,Cells\x7CAreaShape_Zernike_2_0,Cells\x7CAreaShape_Zernike_5_1,Cells\x7CAreaShape_Zernike_5_3,Cells\x7CAreaShape_Zernike_5_5,Cells\x7CAreaShape_Zernike_4_0,Cells\x7CAreaShape_Zernike_4_2,Cells\x7CAreaShape_Zernike_4_4,Cells\x7CAreaShape_Zernike_7_1,Cells\x7CAreaShape_Zernike_7_3,Cells\x7CAreaShape_Zernike_7_5,Cells\x7CAreaShape_Zernike_7_7,Cells\x7CAreaShape_Zernike_6_2,Cells\x7CAreaShape_Zernike_6_0,Cells\x7CAreaShape_Zernike_6_4,Cells\x7CAreaShape_Zernike_6_6,Cells\x7CAreaShape_Zernike_9_1,Cells\x7CAreaShape_Zernike_9_3,Cells\x7CAreaShape_Zernike_9_5,Cells\x7CAreaShape_Zernike_9_7,Cells\x7CAreaShape_Zernike_9_9,Cells\x7CAreaShape_Zernike_8_0,Cells\x7CAreaShape_Zernike_8_2,Cells\x7CAreaShape_Zernike_8_4,Cells\x7CAreaShape_Zernike_8_6,Cells\x7CAreaShape_Zernike_8_8,Cells\x7CAreaShape_Eccentricity,Cells\x7CAreaShape_Compactness,Cells\x7CAreaShape_Extent,Cells\x7CAreaShape_MedianRadius,Cells\x7CAreaShape_MaximumRadius,Cells\x7CAreaShape_MinorAxisLength,Cells\x7CAreaShape_Area,Cells\x7CAreaShape_MajorAxisLength,Cells\x7CAreaShape_Center_Y,Cells\x7CAreaShape_Center_X,Cells\x7CAreaShape_Center_Z,Cells\x7CChildren_Cytoplasm_Count,Experiment\x7CModification_Timestamp,Experiment\x7CPipeline_Pipeline,Experiment\x7CRun_Timestamp,Experiment\x7CCellProfiler_Version,Nuclei\x7CNeighbors_SecondClosestDistance_10,Nuclei\x7CNeighbors_SecondClosestDistance_20,Nuclei\x7CNeighbors_FirstClosestDistance_10,Nuclei\x7CNeighbors_FirstClosestDistance_20,Nuclei\x7CNeighbors_FirstClosestObjectNumber_10,Nuclei\x7CNeighbors_FirstClosestObjectNumber_20,Nuclei\x7CNeighbors_SecondClosestObjectNumber_10,Nuclei\x7CNeighbors_SecondClosestObjectNumber_20,Nuclei\x7CNeighbors_PercentTouching_10,Nuclei\x7CNeighbors_PercentTouching_20,Nuclei\x7CNeighbors_NumberOfNeighbors_10,Nuclei\x7CNeighbors_NumberOfNeighbors_20,Nuclei\x7CNeighbors_AngleBetweenNeighbors_10,Nuclei\x7CNeighbors_AngleBetweenNeighbors_20,Nuclei\x7CNumber_Object_Number,Nuclei\x7CTexture_DifferenceEntropy_CorrTub_10_0,Nuclei\x7CTexture_DifferenceEntropy_CorrTub_3_0,Nuclei\x7CTexture_DifferenceEntropy_CorrDAPI_10_0,Nuclei\x7CTexture_DifferenceEntropy_CorrDAPI_3_0,Nuclei\x7CTexture_DifferenceEntropy_CorrActin_10_0,Nuclei\x7CTexture_DifferenceEntropy_CorrActin_3_0,Nuclei\x7CTexture_InfoMeas2_CorrTub_10_0,Nuclei\x7CTexture_InfoMeas2_CorrTub_3_0,Nuclei\x7CTexture_InfoMeas2_CorrDAPI_10_0,Nuclei\x7CTexture_InfoMeas2_CorrDAPI_3_0,Nuclei\x7CTexture_InfoMeas2_CorrActin_10_0,Nuclei\x7CTexture_InfoMeas2_CorrActin_3_0,Nuclei\x7CTexture_InfoMeas1_CorrTub_10_0,Nuclei\x7CTexture_InfoMeas1_CorrTub_3_0,Nuclei\x7CTexture_InfoMeas1_CorrDAPI_10_0,Nuclei\x7CTexture_InfoMeas1_CorrDAPI_3_0,Nuclei\x7CTexture_InfoMeas1_CorrActin_10_0,Nuclei\x7CTexture_InfoMeas1_CorrActin_3_0,Nuclei\x7CTexture_SumVariance_CorrTub_10_0,Nuclei\x7CTexture_SumVariance_CorrTub_3_0,Nuclei\x7CTexture_SumVariance_CorrDAPI_10_0,Nuclei\x7CTexture_SumVariance_CorrDAPI_3_0,Nuclei\x7CTexture_SumVariance_CorrActin_10_0,Nuclei\x7CTexture_SumVariance_CorrActin_3_0,Nuclei\x7CTexture_Gabor_CorrTub_10,Nuclei\x7CTexture_Gabor_CorrTub_3,Nuclei\x7CTexture_Gabor_CorrActin_10,Nuclei\x7CTexture_Gabor_CorrActin_3,Nuclei\x7CTexture_Gabor_CorrDAPI_10,Nuclei\x7CTexture_Gabor_CorrDAPI_3,Nuclei\x7CTexture_AngularSecondMoment_CorrTub_10_0,Nuclei\x7CTexture_AngularSecondMoment_CorrTub_3_0,Nuclei\x7CTexture_AngularSecondMoment_CorrDAPI_10_0,Nuclei\x7CTexture_AngularSecondMoment_CorrDAPI_3_0,Nuclei\x7CTexture_AngularSecondMoment_CorrActin_10_0,Nuclei\x7CTexture_AngularSecondMoment_CorrActin_3_0,Nuclei\x7CTexture_SumAverage_CorrTub_10_0,Nuclei\x7CTexture_SumAverage_CorrTub_3_0,Nuclei\x7CTexture_SumAverage_CorrDAPI_10_0,Nuclei\x7CTexture_SumAverage_CorrDAPI_3_0,Nuclei\x7CTexture_SumAverage_CorrActin_10_0,Nuclei\x7CTexture_SumAverage_CorrActin_3_0,Nuclei\x7CTexture_Entropy_CorrTub_10_0,Nuclei\x7CTexture_Entropy_CorrTub_3_0,Nuclei\x7CTexture_Entropy_CorrDAPI_10_0,Nuclei\x7CTexture_Entropy_CorrDAPI_3_0,Nuclei\x7CTexture_Entropy_CorrActin_10_0,Nuclei\x7CTexture_Entropy_CorrActin_3_0,Nuclei\x7CTexture_Correlation_CorrTub_10_0,Nuclei\x7CTexture_Correlation_CorrTub_3_0,Nuclei\x7CTexture_Correlation_CorrActin_10_0,Nuclei\x7CTexture_Correlation_CorrActin_3_0,Nuclei\x7CTexture_Correlation_CorrDAPI_10_0,Nuclei\x7CTexture_Correlation_CorrDAPI_3_0,Nuclei\x7CTexture_DifferenceVariance_CorrTub_10_0,Nuclei\x7CTexture_DifferenceVariance_CorrTub_3_0,Nuclei\x7CTexture_DifferenceVariance_CorrActin_10_0,Nuclei\x7CTexture_DifferenceVariance_CorrActin_3_0,Nuclei\x7CTexture_DifferenceVariance_CorrDAPI_10_0,Nuclei\x7CTexture_DifferenceVariance_CorrDAPI_3_0,Nuclei\x7CTexture_Variance_CorrTub_10_0,Nuclei\x7CTexture_Variance_CorrTub_3_0,Nuclei\x7CTexture_Variance_CorrDAPI_10_0,Nuclei\x7CTexture_Variance_CorrDAPI_3_0,Nuclei\x7CTexture_Variance_CorrActin_10_0,Nuclei\x7CTexture_Variance_CorrActin_3_0,Nuclei\x7CTexture_InverseDifferenceMoment_CorrTub_10_0,Nuclei\x7CTexture_InverseDifferenceMoment_CorrTub_3_0,Nuclei\x7CTexture_InverseDifferenceMoment_CorrActin_10_0,Nuclei\x7CTexture_InverseDifferenceMoment_CorrActin_3_0,Nuclei\x7CTexture_InverseDifferenceMoment_CorrDAPI_10_0,Nuclei\x7CTexture_InverseDifferenceMoment_CorrDAPI_3_0,Nuclei\x7CTexture_SumEntropy_CorrTub_10_0,Nuclei\x7CTexture_SumEntropy_CorrTub_3_0,Nuclei\x7CTexture_SumEntropy_CorrDAPI_10_0,Nuclei\x7CTexture_SumEntropy_CorrDAPI_3_0,Nuclei\x7CTexture_SumEntropy_CorrActin_10_0,Nuclei\x7CTexture_SumEntropy_CorrActin_3_0,Nuclei\x7CTexture_Contrast_CorrTub_10_0,Nuclei\x7CTexture_Contrast_CorrTub_3_0,Nuclei\x7CTexture_Contrast_CorrDAPI_10_0,Nuclei\x7CTexture_Contrast_CorrDAPI_3_0,Nuclei\x7CTexture_Contrast_CorrActin_10_0,Nuclei\x7CTexture_Contrast_CorrActin_3_0,Nuclei\x7CIntensity_MassDisplacement_CorrTub,Nuclei\x7CIntensity_MassDisplacement_CorrDAPI,Nuclei\x7CIntensity_MassDisplacement_CorrActin,Nuclei\x7CIntensity_MinIntensity_CorrTub,Nuclei\x7CIntensity_MinIntensity_CorrActin,Nuclei\x7CIntensity_MinIntensity_CorrDAPI,Nuclei\x7CIntensity_StdIntensity_CorrTub,Nuclei\x7CIntensity_StdIntensity_CorrDAPI,Nuclei\x7CIntensity_StdIntensity_CorrActin,Nuclei\x7CIntensity_IntegratedIntensityEdge_CorrTub,Nuclei\x7CIntensity_IntegratedIntensityEdge_CorrActin,Nuclei\x7CIntensity_IntegratedIntensityEdge_CorrDAPI,Nuclei\x7CIntensity_MinIntensityEdge_CorrTub,Nuclei\x7CIntensity_MinIntensityEdge_CorrDAPI,Nuclei\x7CIntensity_MinIntensityEdge_CorrActin,Nuclei\x7CIntensity_IntegratedIntensity_CorrTub,Nuclei\x7CIntensity_IntegratedIntensity_CorrDAPI,Nuclei\x7CIntensity_IntegratedIntensity_CorrActin,Nuclei\x7CIntensity_UpperQuartileIntensity_CorrTub,Nuclei\x7CIntensity_UpperQuartileIntensity_CorrActin,Nuclei\x7CIntensity_UpperQuartileIntensity_CorrDAPI,Nuclei\x7CIntensity_MADIntensity_CorrTub,Nuclei\x7CIntensity_MADIntensity_CorrActin,Nuclei\x7CIntensity_MADIntensity_CorrDAPI,Nuclei\x7CIntensity_MeanIntensity_CorrTub,Nuclei\x7CIntensity_MeanIntensity_CorrActin,Nuclei\x7CIntensity_MeanIntensity_CorrDAPI,Nuclei\x7CIntensity_MeanIntensityEdge_CorrTub,Nuclei\x7CIntensity_MeanIntensityEdge_CorrDAPI,Nuclei\x7CIntensity_MeanIntensityEdge_CorrActin,Nuclei\x7CIntensity_LowerQuartileIntensity_CorrTub,Nuclei\x7CIntensity_LowerQuartileIntensity_CorrDAPI,Nuclei\x7CIntensity_LowerQuartileIntensity_CorrActin,Nuclei\x7CIntensity_MaxIntensity_CorrTub,Nuclei\x7CIntensity_MaxIntensity_CorrActin,Nuclei\x7CIntensity_MaxIntensity_CorrDAPI,Nuclei\x7CIntensity_MedianIntensity_CorrTub,Nuclei\x7CIntensity_MedianIntensity_CorrDAPI,Nuclei\x7CIntensity_MedianIntensity_CorrActin,Nuclei\x7CIntensity_StdIntensityEdge_CorrTub,Nuclei\x7CIntensity_StdIntensityEdge_CorrActin,Nuclei\x7CIntensity_StdIntensityEdge_CorrDAPI,Nuclei\x7CIntensity_MaxIntensityEdge_CorrTub,Nuclei\x7CIntensity_MaxIntensityEdge_CorrActin,Nuclei\x7CIntensity_MaxIntensityEdge_CorrDAPI,Nuclei\x7CLocation_MaxIntensity_Y_CorrTub,Nuclei\x7CLocation_MaxIntensity_Y_CorrActin,Nuclei\x7CLocation_MaxIntensity_Y_CorrDAPI,Nuclei\x7CLocation_MaxIntensity_X_CorrTub,Nuclei\x7CLocation_MaxIntensity_X_CorrDAPI,Nuclei\x7CLocation_MaxIntensity_X_CorrActin,Nuclei\x7CLocation_MaxIntensity_Z_CorrTub,Nuclei\x7CLocation_MaxIntensity_Z_CorrActin,Nuclei\x7CLocation_MaxIntensity_Z_CorrDAPI,Nuclei\x7CLocation_CenterMassIntensity_Y_CorrTub,Nuclei\x7CLocation_CenterMassIntensity_Y_CorrActin,Nuclei\x7CLocation_CenterMassIntensity_Y_CorrDAPI,Nuclei\x7CLocation_CenterMassIntensity_X_CorrTub,Nuclei\x7CLocation_CenterMassIntensity_X_CorrDAPI,Nuclei\x7CLocation_CenterMassIntensity_X_CorrActin,Nuclei\x7CLocation_CenterMassIntensity_Z_CorrTub,Nuclei\x7CLocation_CenterMassIntensity_Z_CorrDAPI,Nuclei\x7CLocation_CenterMassIntensity_Z_CorrActin,Nuclei\x7CLocation_Center_Y,Nuclei\x7CLocation_Center_X,Nuclei\x7CLocation_Center_Z,Nuclei\x7CAreaShape_Perimeter,Nuclei\x7CAreaShape_FormFactor,Nuclei\x7CAreaShape_MinorAxisLength,Nuclei\x7CAreaShape_Center_Y,Nuclei\x7CAreaShape_Center_X,Nuclei\x7CAreaShape_Center_Z,Nuclei\x7CAreaShape_Area,Nuclei\x7CAreaShape_MinFeretDiameter,Nuclei\x7CAreaShape_MaxFeretDiameter,Nuclei\x7CAreaShape_Solidity,Nuclei\x7CAreaShape_EulerNumber,Nuclei\x7CAreaShape_MedianRadius,Nuclei\x7CAreaShape_Compactness,Nuclei\x7CAreaShape_Extent,Nuclei\x7CAreaShape_Orientation,Nuclei\x7CAreaShape_Eccentricity,Nuclei\x7CAreaShape_MaximumRadius,Nuclei\x7CAreaShape_Zernike_1_1,Nuclei\x7CAreaShape_Zernike_0_0,Nuclei\x7CAreaShape_Zernike_3_1,Nuclei\x7CAreaShape_Zernike_3_3,Nuclei\x7CAreaShape_Zernike_2_2,Nuclei\x7CAreaShape_Zernike_2_0,Nuclei\x7CAreaShape_Zernike_5_1,Nuclei\x7CAreaShape_Zernike_5_3,Nuclei\x7CAreaShape_Zernike_5_5,Nuclei\x7CAreaShape_Zernike_4_2,Nuclei\x7CAreaShape_Zernike_4_4,Nuclei\x7CAreaShape_Zernike_4_0,Nuclei\x7CAreaShape_Zernike_7_1,Nuclei\x7CAreaShape_Zernike_7_3,Nuclei\x7CAreaShape_Zernike_7_5,Nuclei\x7CAreaShape_Zernike_7_7,Nuclei\x7CAreaShape_Zernike_6_2,Nuclei\x7CAreaShape_Zernike_6_0,Nuclei\x7CAreaShape_Zernike_6_4,Nuclei\x7CAreaShape_Zernike_6_6,Nuclei\x7CAreaShape_Zernike_9_1,Nuclei\x7CAreaShape_Zernike_9_3,Nuclei\x7CAreaShape_Zernike_9_5,Nuclei\x7CAreaShape_Zernike_9_7,Nuclei\x7CAreaShape_Zernike_9_9,Nuclei\x7CAreaShape_Zernike_8_0,Nuclei\x7CAreaShape_Zernike_8_2,Nuclei\x7CAreaShape_Zernike_8_4,Nuclei\x7CAreaShape_Zernike_8_6,Nuclei\x7CAreaShape_Zernike_8_8,Nuclei\x7CAreaShape_MajorAxisLength,Nuclei\x7CAreaShape_MeanRadius,Nuclei\x7CChildren_Cytoplasm_Count,Nuclei\x7CChildren_Cells_Count,Image\x7CCount_Cytoplasm,Image\x7CCount_Nuclei,Image\x7CCount_Cells,Image\x7CImageNumber,Image\x7CGroup_Index,Image\x7CGroup_Number,Image\x7CWidth_ActinIllum,Image\x7CWidth_Tubulin,Image\x7CWidth_TubIllum,Image\x7CWidth_DAPI,Image\x7CWidth_DAPIillum,Image\x7CWidth_Actin,Image\x7CExecutionTime_11IdentifyTertiaryObjects,Image\x7CExecutionTime_10IdentifySecondaryObjects,Image\x7CExecutionTime_08CorrectIlluminationApply,Image\x7CExecutionTime_30ConvertObjectsToImage,Image\x7CExecutionTime_29ConvertObjectsToImage,Image\x7CExecutionTime_20MeasureTexture,Image\x7CExecutionTime_03NamesAndTypes,Image\x7CExecutionTime_16MeasureObjectNeighbors,Image\x7CExecutionTime_19MeasureObjectNeighbors,Image\x7CExecutionTime_33SaveImages,Image\x7CExecutionTime_09IdentifyPrimaryObjects,Image\x7CExecutionTime_04Groups,Image\x7CExecutionTime_17MeasureObjectNeighbors,Image\x7CExecutionTime_02Metadata,Image\x7CExecutionTime_31ConvertObjectsToImage,Image\x7CExecutionTime_23MeasureTexture,Image\x7CExecutionTime_22MeasureTexture,Image\x7CExecutionTime_14MeasureObjectIntensity,Image\x7CExecutionTime_12MeasureObjectSizeShape,Image\x7CExecutionTime_25MeasureTexture,Image\x7CExecutionTime_05LoadData,Image\x7CExecutionTime_01Images,Image\x7CExecutionTime_18MeasureObjectNeighbors,Image\x7CExecutionTime_21MeasureTexture,Image\x7CExecutionTime_15MeasureObjectIntensity,Image\x7CExecutionTime_06CorrectIlluminationApply,Image\x7CExecutionTime_13MeasureObjectIntensity,Image\x7CExecutionTime_24MeasureTexture,Image\x7CExecutionTime_07CorrectIlluminationApply,Image\x7CExecutionTime_32SaveImages,Image\x7CExecutionTime_34SaveImages,Image\x7CSeries_DAPIillum,Image\x7CSeries_TubIllum,Image\x7CSeries_ActinIllum,Image\x7CImage_Metadata_Plate_DAPI,Image\x7CImage_Metadata_Concentration,Image\x7CImage_Metadata_Well_DAPI,Image\x7CImage_Metadata_Compound,Image\x7CTableNumber,Image\x7CMD5Digest_ActinIllum,Image\x7CMD5Digest_DAPI,Image\x7CMD5Digest_TubIllum,Image\x7CMD5Digest_Tubulin,Image\x7CMD5Digest_DAPIillum,Image\x7CMD5Digest_Actin,Image\x7CTexture_DifferenceVariance_CorrTub_10_0,Image\x7CTexture_DifferenceVariance_CorrTub_3_0,Image\x7CTexture_DifferenceVariance_CorrDAPI_10_0,Image\x7CTexture_DifferenceVariance_CorrDAPI_3_0,Image\x7CTexture_DifferenceVariance_CorrActin_10_0,Image\x7CTexture_DifferenceVariance_CorrActin_3_0,Image\x7CTexture_InfoMeas2_CorrTub_10_0,Image\x7CTexture_InfoMeas2_CorrTub_3_0,Image\x7CTexture_InfoMeas2_CorrDAPI_10_0,Image\x7CTexture_InfoMeas2_CorrDAPI_3_0,Image\x7CTexture_InfoMeas2_CorrActin_10_0,Image\x7CTexture_InfoMeas2_CorrActin_3_0,Image\x7CTexture_InfoMeas1_CorrTub_10_0,Image\x7CTexture_InfoMeas1_CorrTub_3_0,Image\x7CTexture_InfoMeas1_CorrDAPI_10_0,Image\x7CTexture_InfoMeas1_CorrDAPI_3_0,Image\x7CTexture_InfoMeas1_CorrActin_10_0,Image\x7CTexture_InfoMeas1_CorrActin_3_0,Image\x7CTexture_SumVariance_CorrTub_10_0,Image\x7CTexture_SumVariance_CorrTub_3_0,Image\x7CTexture_SumVariance_CorrActin_10_0,Image\x7CTexture_SumVariance_CorrActin_3_0,Image\x7CTexture_SumVariance_CorrDAPI_10_0,Image\x7CTexture_SumVariance_CorrDAPI_3_0,Image\x7CTexture_Gabor_CorrTub_10,Image\x7CTexture_Gabor_CorrTub_3,Image\x7CTexture_Gabor_CorrDAPI_10,Image\x7CTexture_Gabor_CorrDAPI_3,Image\x7CTexture_Gabor_CorrActin_10,Image\x7CTexture_Gabor_CorrActin_3,Image\x7CTexture_AngularSecondMoment_CorrTub_10_0,Image\x7CTexture_AngularSecondMoment_CorrTub_3_0,Image\x7CTexture_AngularSecondMoment_CorrActin_10_0,Image\x7CTexture_AngularSecondMoment_CorrActin_3_0,Image\x7CTexture_AngularSecondMoment_CorrDAPI_10_0,Image\x7CTexture_AngularSecondMoment_CorrDAPI_3_0,Image\x7CTexture_Correlation_CorrTub_10_0,Image\x7CTexture_Correlation_CorrTub_3_0,Image\x7CTexture_Correlation_CorrActin_10_0,Image\x7CTexture_Correlation_CorrActin_3_0,Image\x7CTexture_Correlation_CorrDAPI_10_0,Image\x7CTexture_Correlation_CorrDAPI_3_0,Image\x7CTexture_Entropy_CorrTub_10_0,Image\x7CTexture_Entropy_CorrTub_3_0,Image\x7CTexture_Entropy_CorrDAPI_10_0,Image\x7CTexture_Entropy_CorrDAPI_3_0,Image\x7CTexture_Entropy_CorrActin_10_0,Image\x7CTexture_Entropy_CorrActin_3_0,Image\x7CTexture_DifferenceEntropy_CorrTub_10_0,Image\x7CTexture_DifferenceEntropy_CorrTub_3_0,Image\x7CTexture_DifferenceEntropy_CorrDAPI_10_0,Image\x7CTexture_DifferenceEntropy_CorrDAPI_3_0,Image\x7CTexture_DifferenceEntropy_CorrActin_10_0,Image\x7CTexture_DifferenceEntropy_CorrActin_3_0,Image\x7CTexture_SumAverage_CorrTub_10_0,Image\x7CTexture_SumAverage_CorrTub_3_0,Image\x7CTexture_SumAverage_CorrDAPI_10_0,Image\x7CTexture_SumAverage_CorrDAPI_3_0,Image\x7CTexture_SumAverage_CorrActin_10_0,Image\x7CTexture_SumAverage_CorrActin_3_0,Image\x7CTexture_Variance_CorrTub_10_0,Image\x7CTexture_Variance_CorrTub_3_0,Image\x7CTexture_Variance_CorrDAPI_10_0,Image\x7CTexture_Variance_CorrDAPI_3_0,Image\x7CTexture_Variance_CorrActin_10_0,Image\x7CTexture_Variance_CorrActin_3_0,Image\x7CTexture_InverseDifferenceMoment_CorrTub_10_0,Image\x7CTexture_InverseDifferenceMoment_CorrTub_3_0,Image\x7CTexture_InverseDifferenceMoment_CorrDAPI_10_0,Image\x7CTexture_InverseDifferenceMoment_CorrDAPI_3_0,Image\x7CTexture_InverseDifferenceMoment_CorrActin_10_0,Image\x7CTexture_InverseDifferenceMoment_CorrActin_3_0,Image\x7CTexture_SumEntropy_CorrTub_10_0,Image\x7CTexture_SumEntropy_CorrTub_3_0,Image\x7CTexture_SumEntropy_CorrDAPI_10_0,Image\x7CTexture_SumEntropy_CorrDAPI_3_0,Image\x7CTexture_SumEntropy_CorrActin_10_0,Image\x7CTexture_SumEntropy_CorrActin_3_0,Image\x7CTexture_Contrast_CorrTub_10_0,Image\x7CTexture_Contrast_CorrTub_3_0,Image\x7CTexture_Contrast_CorrActin_10_0,Image\x7CTexture_Contrast_CorrActin_3_0,Image\x7CTexture_Contrast_CorrDAPI_10_0,Image\x7CTexture_Contrast_CorrDAPI_3_0,Image\x7CFileName_CytoplasmImage,Image\x7CFileName_ActinIllum,Image\x7CFileName_DAPI,Image\x7CFileName_CellImage,Image\x7CFileName_TubIllum,Image\x7CFileName_NucleiImage,Image\x7CFileName_Tubulin,Image\x7CFileName_DAPIillum,Image\x7CFileName_Actin,Image\x7CScaling_ActinIllum,Image\x7CScaling_Tubulin,Image\x7CScaling_TubIllum,Image\x7CScaling_DAPI,Image\x7CScaling_DAPIillum,Image\x7CScaling_Actin,Image\x7CModuleError_11IdentifyTertiaryObjects,Image\x7CModuleError_30ConvertObjectsToImage,Image\x7CModuleError_08CorrectIlluminationApply,Image\x7CModuleError_29ConvertObjectsToImage,Image\x7CModuleError_20MeasureTexture,Image\x7CModuleError_03NamesAndTypes,Image\x7CModuleError_16MeasureObjectNeighbors,Image\x7CModuleError_19MeasureObjectNeighbors,Image\x7CModuleError_33SaveImages,Image\x7CModuleError_09IdentifyPrimaryObjects,Image\x7CModuleError_04Groups,Image\x7CModuleError_17MeasureObjectNeighbors,Image\x7CModuleError_10IdentifySecondaryObjects,Image\x7CModuleError_02Metadata,Image\x7CModuleError_31ConvertObjectsToImage,Image\x7CModuleError_23MeasureTexture,Image\x7CModuleError_22MeasureTexture,Image\x7CModuleError_14MeasureObjectIntensity,Image\x7CModuleError_12MeasureObjectSizeShape,Image\x7CModuleError_25MeasureTexture,Image\x7CModuleError_05LoadData,Image\x7CModuleError_01Images,Image\x7CModuleError_18MeasureObjectNeighbors,Image\x7CModuleError_21MeasureTexture,Image\x7CModuleError_15MeasureObjectIntensity,Image\x7CModuleError_06CorrectIlluminationApply,Image\x7CModuleError_07CorrectIlluminationApply,Image\x7CModuleError_24MeasureTexture,Image\x7CModuleError_13MeasureObjectIntensity,Image\x7CModuleError_32SaveImages,Image\x7CModuleError_34SaveImages,Image\x7CPathName_CytoplasmImage,Image\x7CPathName_ActinIllum,Image\x7CPathName_Tubulin,Image\x7CPathName_CellImage,Image\x7CPathName_TubIllum,Image\x7CPathName_NucleiImage,Image\x7CPathName_DAPI,Image\x7CPathName_DAPIillum,Image\x7CPathName_Actin,Image\x7CURL_ActinIllum,Image\x7CURL_Tubulin,Image\x7CURL_TubIllum,Image\x7CURL_DAPI,Image\x7CURL_DAPIillum,Image\x7CURL_Actin,Image\x7CThreshold_FinalThreshold_Nuclei,Image\x7CThreshold_FinalThreshold_Cells,Image\x7CThreshold_OrigThreshold_Nuclei,Image\x7CThreshold_OrigThreshold_Cells,Image\x7CThreshold_SumOfEntropies_Nuclei,Image\x7CThreshold_SumOfEntropies_Cells,Image\x7CThreshold_WeightedVariance_Cells,Image\x7CThreshold_WeightedVariance_Nuclei,Image\x7CReplicate,Image\x7CHeight_ActinIllum,Image\x7CHeight_DAPI,Image\x7CHeight_TubIllum,Image\x7CHeight_Tubulin,Image\x7CHeight_DAPIillum,Image\x7CHeight_Actin,Image\x7CFrame_DAPIillum,Image\x7CFrame_TubIllum,Image\x7CFrame_ActinIllum,Image\x7CMetadata_Plate,Image\x7CMetadata_FileLocation,Image\x7CMetadata_Series,Image\x7CMetadata_Frame,Image\x7CMetadata_Well
+    Representation of Nan/Inf:NaN
+    Add a prefix to file names?:No
+    Filename prefix:MyExpt_
+    Overwrite existing files without warning?:Yes
+    Data to export:Image
+    Combine these object measurements with those of the previous object?:No
+    File name:DATA.csv
+    Use the object name for the file name?:Yes
+    Data to export:Cells
+    Combine these object measurements with those of the previous object?:No
+    File name:DATA.csv
+    Use the object name for the file name?:Yes
+    Data to export:Nuclei
+    Combine these object measurements with those of the previous object?:No
+    File name:DATA.csv
+    Use the object name for the file name?:Yes
+    Data to export:Cytoplasm
+    Combine these object measurements with those of the previous object?:No
+    File name:DATA.csv
+    Use the object name for the file name?:Yes
+
+CreateBatchFiles:[module_num:37|svn_version:\'Unknown\'|variable_revision_number:7|show_window:True|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:False|wants_pause:False]
+    Store batch files in default output folder?:Yes
+    Output folder path:C\x3A\\\\\\\\Users\\\\\\\\mbray\\\\\\\\Desktop
+    Are the cluster computers running Windows?:No
+    Hidden\x3A in batch mode:No
+    Hidden\x3A in distributed mode:No
+    Hidden\x3A default input folder at time of save:C\x3A\\\\Users\\\\mbray\\\\Desktop
+    Hidden\x3A revision number:11710
+    Hidden\x3A from old matlab:No
+    Launch BatchProfiler:No
