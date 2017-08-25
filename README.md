@@ -11,7 +11,7 @@ Code for my BSSP research project involving morphological cell profiling with de
 labels2.ipynb - Produce labeled matrices from CNN segmentation<br>
 nuclei_coords.ipynb - Extract nucleus coordinates from feature matrices<br>
 visualize_differences.py - Generate difference maps for CP/CNN segmentations<br>
-whitening*.ipynb - Whiten data<br>
+whitening.ipynb, whitening2.ipynb - Whiten data with 1 or 2 passes<br>
 *commands.txt - Commands to run in parallel for CellProfiler pipeline<br>
 *.cppipe - CellProfiler pipeline
 
